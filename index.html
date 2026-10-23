@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Monitor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .card {
+            background: white;
+            max-width: 350px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        h1 {
+            color: #1e293b;
+        }
+
+        .temperature {
+            font-size: 48px;
+            color: #2563eb;
+            margin: 25px 0;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Temperature Monitor</h1>
+        <p>Current temperature</p>
+
+        <div class="temperature" id="temperature">
+            28°C
+        </div>
+
+        <button onclick="updateTemperature()">
+            Refresh Temperature
+        </button>
+
+        <p id="status">Status: Normal</p>
+    </div>
+
+    <script>
+        function updateTemperature() {
+            const temp = Math.floor(Math.random() * 16) + 20;
+
+            document.getElementById("temperature").textContent =
+                temp + "°C";
+
+            document.getElementById("status").textContent =
+                temp > 30 ? "Status: High Temperature" :
+                "Status: Normal";
+        }
+    </script>
+</body>
+</html>
